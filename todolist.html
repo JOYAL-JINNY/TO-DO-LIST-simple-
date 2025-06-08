@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<style>
+    body{
+        background:linear-gradient(100deg,rgb(180, 32, 180),white)   ;
+        display: flex;
+        justify-content: center;
+        margin-top: 160px; 
+    }
+    .main{
+        width: 650px;
+        border-radius: 30px;
+        background-color: white;
+       
+    }
+    .one{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+    }
+    .second{
+        width: 100%;
+        height: 100%;
+        background-color: none;
+    }
+    #inputbox{
+        width: 500px;
+        height: 40px;
+        border-radius: 20px;
+        margin-left: 20px;
+    }
+    button{
+        height:40px;
+        width: 90px;
+        margin-left: 15px;
+        background-color: rgb(100, 31, 109);
+        color: white;
+        border-radius: 40px;
+        outline: none;
+        font-weight:bold;
+        font-size: 15px;
+    }
+    li{
+        font-size: 15px;
+        font-weight: bold;
+        font-family: poppins,sans-serif;
+        margin-top: 10px;
+        list-style:georgian;
+    }
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do-list</title>
+</head>
+<body>
+<div class="main">
+    <div class="one">
+        <h1 style="font-size: 30px; font-family: poppins,sans-serif; font-weight: bold; margin-top:20px;">TO-DO-LIST</h1>
+        <img style="width: 70px; " src="business-to-do-list-flat-icon-modern-style-vector.jpg"></h1>
+    </div>    
+        <div class="second">
+            <input type="text" id="inputbox">
+            <button onclick="add()">ADD</button>
+            <ul id="listcontainer">
+                <li>
+                    <button onclick="deleting(event)">DELETE</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div> 
+<script>
+    var ul=document.getElementById("listcontainer");
+    var inputboxcontent = document.getElementById("inputbox");
+    function add()
+    {
+        var listitem = document.createElement("li");
+        listitem.innerHTML =inputboxcontent.value + "<button onclick='deleting(event)'>DELETE</button>";
+        ul.append(listitem);
+    }
+    function deleting(event)
+    {
+        event.target.parentElement.remove();
+    }
+</script>  
+    
+</body>
+</html>
